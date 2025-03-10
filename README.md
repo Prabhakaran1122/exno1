@@ -22,15 +22,14 @@ STEP 6: Use zscore of to remove outliers
 
 # Coding and Output
 ```
-REGISTER NO : 212224040236
+REGISTER NUMBER:212224040236
 NAME:PRABHAKARAN P
 ```
-```
-import pandas as pd
+```import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-df = pd.read_csv('drive/MyDrive/heights.csv')
+df=pd.read_csv('drive/MyDrive/heights.csv')
 print(df)
 
        name  height
@@ -49,9 +48,11 @@ print(df)
 12   yoseph     1.2
 13    binod     5.5
 
+```
+```
 pd.DataFrame(df)
 
-name	height
+	name	height
 0	mohan	5.9
 1	maria	5.2
 2	sakib	5.1
@@ -66,44 +67,50 @@ name	height
 11	deepika	5.6
 12	yoseph	1.2
 13	binod	5.5
+```
+```
+sns.boxplot(df)
+```
 
-sns.boxplot(data=df)
-![download](https://github.com/user-attachments/assets/1d28a65a-8418-4778-80b3-9c6a4742e82a)
+![download](https://github.com/user-attachments/assets/0d7429a6-d9cd-49ab-91ec-ca9bf3f732a6)
 
-sns.scatterplot(data=df)
-![download](https://github.com/user-attachments/assets/01496d83-849d-41fe-8571-5028bb8bef50)
 
-Q1 = df['height'].quantile(0.25)
-Q3 = df['height'].quantile(0.75)
-IQR = Q3 - Q1
+```
+sns.scatterplot(df)
+```
+
+![download](https://github.com/user-attachments/assets/bea4d1bf-a145-457e-8045-0f59063d0cf3)
+
+```
+Q1=df['height'].quantile(0.25)
+Q3=df['height'].quantile(0.75)
+IQR=Q3-Q1
 print(IQR)
 
 0.9249999999999998
 
 lower_bound=Q1-1.5*IQR
 upper_bound=Q3+1.5*IQR
+print("lower bound:",lower_bound)
+print("upper bound:",upper_bound)
 
-lower_bound
+lower bound: 3.8625000000000003
+upper bound: 7.5625
+```
+```
+ outliers = df[(df['height'] < lower_bound) | (df['height'] > upper_bound)]
+ print(outliers)
 
-3.8625000000000003
-
-upper_bound
-
-7.5625
-
-outliers = df[(df['height'] < lower_bound) | (df['height'] > upper_bound)]
-print(outliers)
-
- name  height
+     name  height
 9    imran    14.5
 12  yoseph     1.2
 
-print("Q1 = ", Q1)
-print("Q3 = ",Q3)
-print("IQR = ", IQR)
-print("Lower bound = ", lower_bound)
-print("Upper bound = ", upper_bound)
-print( outliers)
+ print("Q1 = ", Q1)
+ print("Q3 = ",Q3)
+ print("IQR = ", IQR)
+ print("Lower bound = ", lower_bound)
+ print("Upper bound = ", upper_bound)
+ print( outliers)
 
 Q1 =  5.25
 Q3 =  6.175
@@ -113,11 +120,13 @@ Upper bound =  7.5625
       name  height
 9    imran    14.5
 12  yoseph     1.2
+```
+```
 
 new=df[(df['height'] > lower_bound) & (df['height'] < upper_bound)]
-print(new)
+ print(new)
 
- name  height
+     name  height
 0     mohan     5.9
 1     maria     5.2
 2     sakib     5.1
@@ -130,18 +139,24 @@ print(new)
 10     jose     6.1
 11  deepika     5.6
 13    binod     5.5
+```
+```
+sns.boxplot(new)
+```
 
-sns.boxplot(data=new)
-
-![download](https://github.com/user-attachments/assets/e5a76eb3-8dfd-449d-a936-336cb6e7fac4)
-
-sns.scatterplot(data=new)
-
-![download](https://github.com/user-attachments/assets/e5a16aa7-e684-4d19-9784-5c611ae6ef34)
-
+![download](https://github.com/user-attachments/assets/aeeb4c0f-d6b1-448e-8478-d3733e5b603d)
 
 
 ```
+sns.scatterplot(new)
+```
+
+![image](https://github.com/user-attachments/assets/638b0fe8-dabd-4ae1-b0f4-b792a44e03e2)
+
+
+
+
 
 # Result
-       The given data has been used to perform data cleaning and save the cleaned data to a file.   
+ The given data has been used to perform data cleaning and saved the cleaned data to a file.
+          
