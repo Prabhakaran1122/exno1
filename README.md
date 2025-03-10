@@ -21,6 +21,7 @@ STEP 5: Remove outliers using IQR
 STEP 6: Use zscore of to remove outliers
 
 # Coding and Output
-            <<include your coding and its corressponding output screen shots here>>
+           [DATA CLEANING AND OUTLIERS.ipynb - Colab.pdf](https://github.com/user-attachments/files/19154674/DATA.CLEANING.AND.OUTLIERS.ipynb.-.Colab.pdf)
+
 # Result
-          <<include your Result here>>
+       The given data has been used to perform data cleaning and save the cleaned data to a file.   
